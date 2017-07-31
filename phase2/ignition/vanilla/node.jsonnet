@@ -22,7 +22,7 @@ function(cfg)
               "--pod-manifest-path=/etc/kubernetes/manifests",
               "--cluster-dns=10.0.0.10",
               "--cluster-domain=cluster.local",
-              "--v=2",
+              "--v=9",
             ],
             if cfg.role == "node" && phase1.cloud_provider != "vsphere" then
               [

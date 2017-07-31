@@ -35,14 +35,14 @@ function(cfg)
               "--tls-cert-file=/srv/kubernetes/apiserver.pem",
               "--tls-private-key-file=/srv/kubernetes/apiserver-key.pem",
               "--secure-port=443",
-              "--storage-backend=etcd2", 
+              "--storage-backend=etcd2",
               "--allow-privileged",
-              "--v=4",
+              "--v=9",
             ],
             if cfg.phase1.cloud_provider == "azure" then
               ["--cloud-config=/etc/kubernetes/azure.json"],
             if cfg.phase1.cloud_provider == "vsphere" then
-              ["--cloud-config=/etc/kubernetes/vsphere.conf"],          
+              ["--cloud-config=/etc/kubernetes/vsphere.conf"],
           ]),
           livenessProbe: {
             httpGet: {

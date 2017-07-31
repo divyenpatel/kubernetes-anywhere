@@ -33,7 +33,7 @@ function(cfg)
               "--cloud-provider=%s" % cfg.phase1.cloud_provider,
               "--service-account-private-key-file=/srv/kubernetes/apiserver-key.pem",
               "--root-ca-file=/srv/kubernetes/ca.pem",
-              "--v=2",
+              "--v=9",
             ],
             if cfg.phase1.cloud_provider == "azure" then
               ["--cloud-config=/etc/kubernetes/azure.json"],
