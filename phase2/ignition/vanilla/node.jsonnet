@@ -27,16 +27,14 @@ function(cfg)
             if cfg.role == "node" && phase1.cloud_provider != "vsphere" then
               [
                 "--network-plugin=kubenet",
-                "--reconcile-cidr",                
-              ],            
+                "--reconcile-cidr",
+              ],
             if cfg.role == "node" then
               [
-                "--api-servers=https://" + cfg.master_ip,
                 "--hairpin-mode=promiscuous-bridge",
               ]
             else
               [
-                "--api-servers=http://localhost:8080",
                 "--register-schedulable=false",
               ],
             if phase1.cloud_provider == "azure" then
@@ -46,7 +44,7 @@ function(cfg)
             if phase1.cloud_provider == "vsphere" then
               [
                 "--cloud-config=/etc/kubernetes/vsphere.conf"
-              ],             
+              ],
           ])),
         },
       }],
