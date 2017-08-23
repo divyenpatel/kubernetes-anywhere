@@ -20,6 +20,7 @@ ExecStart=/usr/bin/docker run \
         -v /var/log:/var/log:shared \
         -v /srv/kubernetes:/srv/kubernetes:ro \
         -v /etc/kubernetes:/etc/kubernetes:ro \
+        -v /usr/sbin/:/usr/sbin/:ro \
         %(docker_registry)s/hyperkube-amd64:%(kubernetes_version)s \
         /hyperkube kubelet %(kubelet_args)s
 Restart=always
