@@ -42,10 +42,6 @@ function(cfg)
             if phase1.cloud_provider == "azure" then
               [
                 "--cloud-config=/etc/kubernetes/azure.json",
-              ],
-            if phase1.cloud_provider == "vsphere" then
-              [
-                "--cloud-config=/etc/kubernetes/vsphere.conf"
               ],             
           ])),
         },

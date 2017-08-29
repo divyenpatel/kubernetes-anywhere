@@ -30,15 +30,12 @@ function(cfg)
               "--cluster-name=" + cfg.phase1.cluster_name,
               "--cluster-cidr=10.244.0.0/16",
               "--allocate-node-cidrs=true",
-              "--cloud-provider=%s" % cfg.phase1.cloud_provider,
               "--service-account-private-key-file=/srv/kubernetes/apiserver-key.pem",
               "--root-ca-file=/srv/kubernetes/ca.pem",
               "--v=2",
             ],
             if cfg.phase1.cloud_provider == "azure" then
               ["--cloud-config=/etc/kubernetes/azure.json"],
-            if cfg.phase1.cloud_provider == "vsphere" then
-              ["--cloud-config=/etc/kubernetes/vsphere.conf"],
           ]),
           livenessProbe: {
             httpGet: {

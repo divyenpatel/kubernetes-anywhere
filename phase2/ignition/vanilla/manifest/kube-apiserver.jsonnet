@@ -28,7 +28,6 @@ function(cfg)
               "apiserver",
               "--address=127.0.0.1",
               "--etcd-servers=http://127.0.0.1:2379",
-              "--cloud-provider=%s" % cfg.phase1.cloud_provider,
               "--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,ResourceQuota",
               "--service-cluster-ip-range=10.0.0.0/16",
               "--client-ca-file=/srv/kubernetes/ca.pem",
@@ -41,8 +40,6 @@ function(cfg)
             ],
             if cfg.phase1.cloud_provider == "azure" then
               ["--cloud-config=/etc/kubernetes/azure.json"],
-            if cfg.phase1.cloud_provider == "vsphere" then
-              ["--cloud-config=/etc/kubernetes/vsphere.conf"],          
           ]),
           livenessProbe: {
             httpGet: {
