@@ -15,7 +15,6 @@ function(cfg)
             [
               "--address=0.0.0.0",
               "--allow-privileged=true",
-              "--cloud-provider=" + phase1.cloud_provider,
               "--enable-server",
               "--enable-debugging-handlers",
               "--kubeconfig=/srv/kubernetes/kubeconfig.json",
