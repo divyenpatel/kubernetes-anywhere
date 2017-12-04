@@ -11,10 +11,11 @@ function(cfg)
       containers: [
         {
           name: "etcd-container",
-          image: "gcr.io/google_containers/etcd:2.2.1",
+          image: "gcr.io/google_containers/etcd:3.1.10",
           resources: {
             requests: {
-              cpu: "200m",
+              cpu: "1000m",
+              memory: "2G"
             },
           },
           command: [

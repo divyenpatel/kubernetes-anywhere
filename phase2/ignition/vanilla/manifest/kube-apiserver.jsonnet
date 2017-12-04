@@ -19,7 +19,8 @@ function(cfg)
           image: "%(docker_registry)s/hyperkube-amd64:%(kubernetes_version)s" % cfg.phase2,
           resources: {
             requests: {
-              cpu: "250m",
+              cpu: "1000m",
+              memory: "1G"
             },
           },
           command: util.build_params([
@@ -35,12 +36,13 @@ function(cfg)
               "--tls-cert-file=/srv/kubernetes/apiserver.pem",
               "--tls-private-key-file=/srv/kubernetes/apiserver-key.pem",
               "--secure-port=443",
-              "--storage-backend=etcd2", 
+              "--storage-backend=etcd3", 
               "--allow-privileged",
               "--v=4",
             ],
             if cfg.phase1.cloud_provider == "vsphere" then
-              ["--cloud-config=/etc/kubernetes/vsphere.conf"],          
+              ["--cloud-config=/etc/kubernetes/vsphere.conf"],
+              ["--authorization-mode=AlwaysAllow"],          
           ]),
           livenessProbe: {
             httpGet: {
