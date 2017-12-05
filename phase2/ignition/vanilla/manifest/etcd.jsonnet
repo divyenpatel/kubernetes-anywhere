@@ -15,7 +15,6 @@ function(cfg)
           resources: {
             requests: {
               cpu: "1000m",
-              memory: "2G"
             },
           },
           command: [

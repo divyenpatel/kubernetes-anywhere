@@ -20,7 +20,6 @@ function(cfg)
           resources: {
             requests: {
               cpu: "1000m",
-              memory: "1G"
             },
           },
           command: util.build_params([
