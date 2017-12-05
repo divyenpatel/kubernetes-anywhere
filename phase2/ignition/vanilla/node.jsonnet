@@ -18,7 +18,6 @@ function(cfg)
               "--cloud-provider=" + phase1.cloud_provider,
               "--enable-server",
               "--enable-debugging-handlers",
-              "--kube-reserved=cpu=500m,memory=512M",
               "--kubeconfig=/srv/kubernetes/kubeconfig.json",
               "--pod-manifest-path=/etc/kubernetes/manifests",
               "--cluster-dns=10.0.0.10",
