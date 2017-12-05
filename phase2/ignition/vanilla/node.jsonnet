@@ -31,12 +31,10 @@ function(cfg)
               ],            
             if cfg.role == "node" then
               [
-                "--api-servers=https://" + cfg.master_ip,
                 "--hairpin-mode=promiscuous-bridge",
               ]
             else
               [
-                "--api-servers=http://localhost:8080",
                 "--register-schedulable=false",
               ],
             if phase1.cloud_provider == "vsphere" then
