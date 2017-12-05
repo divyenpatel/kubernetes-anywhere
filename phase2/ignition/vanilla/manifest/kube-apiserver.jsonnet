@@ -19,7 +19,7 @@ function(cfg)
           image: "%(docker_registry)s/hyperkube-amd64:%(kubernetes_version)s" % cfg.phase2,
           resources: {
             requests: {
-              cpu: "1000m",
+              cpu: "500m",
             },
           },
           command: util.build_params([
